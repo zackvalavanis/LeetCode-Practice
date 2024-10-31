@@ -6,13 +6,15 @@ var removeDuplicates = function(nums) {
   var uniqueNums = []
   for(let i = 0; i < nums.length; i++){ 
     const num = nums[i];
-    console.log(num)
     if(!(num in object)){ 
       object[num] = true;
       uniqueNums.push(num);
     }
   }
-  return uniqueNums
+  for(let i = 0; i < uniqueNums.length; i++){ 
+    nums[i] = uniqueNums[i]
+  }
+  return uniqueNums.length
 };
 
 console.log(removeDuplicates(nums));
