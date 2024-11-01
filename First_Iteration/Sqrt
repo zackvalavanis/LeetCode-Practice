@@ -1,0 +1,10 @@
+x = 8
+
+var mySqrt = function(x) {
+  let divide = Math.sqrt(x)
+  return Math.floor(divide)
+
+    
+};
+
+console.log(mySqrt(x));
