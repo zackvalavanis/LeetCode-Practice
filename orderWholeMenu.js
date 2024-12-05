@@ -8,13 +8,13 @@
 
 var input = {"hot dog": 2, "hamburger": 3, "steak sandwich": 5, "fries": 1, "cole slaw": 1, "soda" : 2}
 
-const costOfAll = (input) => { 
+const sumOfAll = (input) => { 
   var sum = 0;
-  for(const key in input){ 
+
+  for(let key in input){ 
     var values = input[key]
     sum += values
   }
-return sum
+  return sum
 }
-
-console.log(costOfAll(input))
+console.log(sumOfAll(input))
