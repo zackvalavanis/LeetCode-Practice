@@ -14,4 +14,6 @@ const missingNumber = (nums) => {
 
 }
 
+
+
 console.log(missingNumber(nums))
