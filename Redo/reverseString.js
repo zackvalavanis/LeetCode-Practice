@@ -1,25 +1,21 @@
-var string = 'hello'
+// Input: “abcde”
+// Output: “edcba”
 
-const reverseString = (string) => { 
+var input = 'abcde'
+
+const reverseString = (input) => {
   var i = 0;
-  var str = string.split('')
-  var j = str.length - 1;
+  var arr = input.split('')
+  var j = arr.length -1;
+  
   while(i < j){ 
-    var temp = str[i]
-    str[i] = str[j]
-    str[j] = temp
-    i++ 
+    var temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
+    i++
     j--
   }
- return str.join('')
+return arr.join('')
 }
 
-console.log(reverseString(string))
-
-//alternatively 
-
-const reverse = (string) => { 
-  return string.split('').reverse().join('')
-}
-
-console.log(reverse(string))
+console.log(reverseString(input))
