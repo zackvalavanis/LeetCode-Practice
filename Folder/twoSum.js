@@ -8,24 +8,37 @@
 // Input: [1, 2, 3, 4, 5]
 // Output: false (While 1, 2, 3, and 4 altogether add up to 10, we're seeking just one pair of numbers.)
 
-var input = [2, 5, 3, 1, 0, 7, 11]
-var target = 10
+// Activity
 
-const twoSum = (input, target) => { 
-  var i = 0;
-  var j = 0;
-  var hash = {};
-  while(i < input.length){ 
-    var number = input[i];
-    var remainder = target - number;
+var numbers = [2, 5, 3, 1, 0, 7, 11]
+
+const twoSum = (numbers) => { 
+  var target = 10;
+  var hash = {}
+  for(let i = 0; i < numbers.length; i++){ 
+    var number = numbers[i]
+    var remainder = target - number
     if(remainder in hash){ 
       return [remainder, number]
     } else { 
-      hash[number] = true;
+      hash[number] = i
     }
-    i++
   }
-  return []
+  return false
+}
+console.log(twoSum(numbers))
+
+
+const twoSum2 = (input) => { 
+  const target = 10
+  for(let i = 0; i < input.length; i++){ 
+    for(let j = i + 1; j < input.length; j++){ 
+      if(input[i] + input[j] === target){ 
+        return [input[i], input[j]]
+      }
+    }
+  }
+return false
 }
 
-console.log(twoSum(input, target))
+console.log(twoSum2(numbers))

@@ -1,28 +1,27 @@
 // Find the largest product of any two numbers within a given array.
 
-var numbers = [5, -2, 1, -9, -7, 2, 6]
+
 // Output: 63 (-9 * -7)
 
-const largestProduct = (numbers) => { 
-  var i = 0;
-  var j = 0;
-  maxProduct = 1;
-  while(i < numbers.length){ 
-    var number = numbers[i]
-    j = 0;
-    while(j < numbers.length){ 
-      var number2 = numbers[j]
+var input = [5, -2, 1, -9, -7, 2, 6]
+
+const largestProduct = (input) => { 
+  var largestProducts = 1
+  for(let i = 0; i < input.length; i++){ 
+    var number = input[i]
+    j = 0
+    for(let j = 0; j < input.length; j++){ 
+      var number2 = input[j]
+      var product = 1
       if(number !== number2){ 
-        let multiply = number * number2
-        if(maxProduct < multiply){ 
-          maxProduct = multiply
+        product = number * number2 
+        if(largestProducts < product){ 
+          largestProducts = product
         }
       }
-      j++
     }
-    i++
   }
-return maxProduct
+return largestProducts
 }
 
-console.log(largestProduct(numbers))
+console.log(largestProduct(input))

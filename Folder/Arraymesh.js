@@ -1,25 +1,22 @@
+// Description
 // Given two arrays of strings, return a new string that contains every combination of a string from the first array concatenated with a string from the second array.
 
-var array1 = ["a", "b", "c"]
-var array2 = ["d", "e", "f", "g"]
+// Input: ["a", "b", "c"], ["d", "e", "f", "g"]
 // Output: ["ad", "ae", "af", "ag", "bd", "be", "bf", "bg", "cd", "ce", "cf", "cg"]
 
+var input1 = ["a", "b", "c"]
+var input2 = ["d", "e", "f", "g"]
 
-const concatArrays =(array1, array2) =>{ 
-  var i = 0;
-  var j = 0;
-  var string = []
-  while(i < array1.length){ 
-    var letter = array1[i]
-    var j = 0;
-    while(j < array2.length){ 
-      var letter2 = array2[j]
-      j++
-      string.push(letter + letter2)
+const arrayMesh = (input1, input2) => { 
+  var meshed = []
+  for(let i = 0; i < input1.length; i++){ 
+    var number1 = input1[i]
+    for(let j = 0; j < input2.length; j++){ 
+      var number2 = input2[j]
+      meshed.push(number1 + number2)
     }
-    i++
   }
- return string
+  return meshed
 }
 
-console.log(concatArrays(array1, array2))
+console.log(arrayMesh(input1, input2))
