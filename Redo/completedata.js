@@ -1,4 +1,5 @@
-// Given an array of social media posts and an array of users, return a list of posts (as an array of hashes) that replaces the submitted_by id number as the person's actual name.
+// Description
+// Given an array of social media posts and a hash of users, return a list of posts (as an array of hashes) that replaces the submitted_by id number as the person's actual name.
 
 // For example, given this array of posts (note that the submitted_by is an id number):
 
@@ -9,14 +10,9 @@
 // {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
 // ]
 
-// And this array of users:
+// And this hash of users (the key is the id number and the value is the user's real name):
 
-// [
-// {user_id: 403, name: "Aunty Em"},
-// {user_id: 231, name: "Joelle P."},
-// {user_id: 989, name: "Lyndon Johnson"},
-// {user_id: 111, name: "Patti Q."},
-// ]
+// users = {403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q."}
 
 // Return the array of posts as follows:
 
@@ -27,28 +23,23 @@
 // {title: 'Mondays are the worst', submitted_by: "Aunty Em", likes: 644}
 // ]
 
-var input = [
+var posts = [
   {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
   {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
   {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
   {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
 ]
 
-var users = [
-{user_id: 403, name: "Aunty Em"},
-{user_id: 231, name: "Joelle P."},
-{user_id: 989, name: "Lyndon Johnson"},
-{user_id: 111, name: "Patti Q."},
-]
-  
-const update = (input, users) => { 
-  return input.map((post) => { 
-    const user = users.find(user => user.user_id === post.submitted_by)
-    return { 
-     ...post,
-     submitted_by: user ? user.name : 'Unknown'
+var users = {403: "Aunty Em", 231: "Joelle P.", 989:"Lyndon Johnson", 111: "Patti Q"}
+
+const completeData = (posts, users) => { 
+  return posts.map((post) => { 
+    return {
+      ...post, 
+      submitted_by: users[post.submitted_by]
     }
   })
+
 }
 
-console.log(update(input, users))
+console.log(completeData(posts, users))

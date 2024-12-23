@@ -1,8 +1,3 @@
-// Book Organizer
-// in list
-// Data Transformations
-
-// Description
 // Given a list of books provided in this format:
 
 // [
@@ -32,17 +27,8 @@
 // "F. Scott Fitzgerald" => [
 // {title: "The Great Gatsby", year: 1925 }
 // ]
-// }
 
-
-// Show less
-// Activity
-// Hide details
-// Actions
-
-// Share
-
-books = 
+var books = 
 [
 {title: "The Lord of the Rings", author: "J. R. R. Tolkien", year: 1954 },
 {title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960 },
@@ -54,16 +40,14 @@ books =
 ]
 
 const bookOrganizer = (books) => { 
-  var hash = {}
-  for(let key in books){ 
-    let author = books[key].author
-    if(hash[author]){ 
-      hash[author].push({title: books[key].title, year: books[key].year})
-    } else { 
-      hash[author] = [{title: books[key].title, year: books[key].year}]
+  const organizedBooks = {}
+  books.forEach((book) => { 
+    const { author, title, year } = book
+    if(!organizedBooks[author]){ 
+      organizedBooks[author] = []
     }
-  }
-  return hash
+    organizedBooks[author].push({title, year})
+  })
+return organizedBooks
 }
-
 console.log(bookOrganizer(books))
