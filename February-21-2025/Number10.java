@@ -3,5 +3,4 @@ public class Number10 {
     int number = 10;
     System.out.println(number * 10);
   }
-
 }
