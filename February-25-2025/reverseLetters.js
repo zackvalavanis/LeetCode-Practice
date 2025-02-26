@@ -12,9 +12,9 @@ const reverse = (s) => {
   var left = 0; 
   var right = arr.length - 1
   while(left < right){ 
-    if(!/[a-zA-z]/.test(arr[left])) { 
+    if(!/[a-zA-Z]/.test(arr[left])) { 
       left++
-    } else if(!/[a-zA-z]/.test(arr[right])){ 
+    } else if(!/[a-zA-Z]/.test(arr[right])){ 
       right--
     } else { 
       var temp = arr[left]
