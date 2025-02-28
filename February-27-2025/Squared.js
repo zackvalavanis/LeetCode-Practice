@@ -5,16 +5,14 @@
 
 var nums = [-4,-1,0,3,10]
 
-
-const squareSorted = (nums) => {
+const squared = (nums) => { 
   for(let i = 0; i < nums.length; i++){ 
     nums[i] = nums[i] * nums[i]
   }
-  console.log(nums)
-  let i = 0; 
-  let j = nums.length - 1
+  var i = 0; 
+  var j = nums.length -1; 
   let result = new Array(nums.length)
-  let resultIndex = nums.length - 1
+  let resultIndex = nums.length - 1;
   while(i <= j){ 
     if(nums[i] > nums[j]) { 
       result[resultIndex] = nums[i]
@@ -26,9 +24,9 @@ const squareSorted = (nums) => {
     resultIndex--
   }
   for(let i = 0; i < nums.length; i++){ 
-  nums[i] = result[i]
+   nums[i] = result[i]
   }
   return nums
 }
 
-console.log(squareSorted(nums))
+console.log(squared(nums))
